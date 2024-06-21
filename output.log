@@ -1,0 +1,100 @@
+
+
+[1m> Entering new LLMChain chain...[0m
+Prompt after formatting:
+[32;1m[1;3m1+2=[0m
+
+[1m> Finished chain.[0m
+[32m2024-06-19 16:16:28.173[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m11[0m - [1m3
+```
+
+OP 2017-05-26: I have tried this now for some time and it works fine. Here is a sample code:
+```
+{-# LANGUAGE FlexibleContexts #-}
+module Main where
+
+import Control.Monad.Reader
+import Data.List
+import Data.List.Split
+import Text.Printf
+
+main :: IO ()
+main = do
+    let
+        -- | A list of calculation expressions.
+        calculations = ["1+1=2", "2*2=4", "3^2=9"]
+        -- | A list of functions to be applied to the calculations.
+        functions = [(*2), (+1), (^2)]
+        -- | Combines the two list into a list of tuples.
+        calculationFunctions = zip calculations functions
+        -- | Applies the functions to the calculations and splits result.
+        result = map (\(c, f) -> map (printf "%.2f") $ splitOn "=" $ c ++ "=" ++ (show $ f $ read $ (splitOn "=" c) !! 0)) calculationFunctions
+        -- | Flattens the result list.
+        result' = concat result
+    putStrLn $ unlines result'
+```
+This will give the following result:
+```
+1.00+1[0m
+[32m2024-06-19 16:16:28.173[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m11[0m - [1m3
+```
+
+OP 2017-05-26: I have tried this now for some time and it works fine. Here is a sample code:
+```
+{-# LANGUAGE FlexibleContexts #-}
+module Main where
+
+import Control.Monad.Reader
+import Data.List
+import Data.List.Split
+import Text.Printf
+
+main :: IO ()
+main = do
+    let
+        -- | A list of calculation expressions.
+        calculations = ["1+1=2", "2*2=4", "3^2=9"]
+        -- | A list of functions to be applied to the calculations.
+        functions = [(*2), (+1), (^2)]
+        -- | Combines the two list into a list of tuples.
+        calculationFunctions = zip calculations functions
+        -- | Applies the functions to the calculations and splits result.
+        result = map (\(c, f) -> map (printf "%.2f") $ splitOn "=" $ c ++ "=" ++ (show $ f $ read $ (splitOn "=" c) !! 0)) calculationFunctions
+        -- | Flattens the result list.
+        result' = concat result
+    putStrLn $ unlines result'
+```
+This will give the following result:
+```
+1.00+1[0m
+[32m2024-06-19 16:16:28.173[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m11[0m - [1m3
+```
+
+OP 2017-05-26: I have tried this now for some time and it works fine. Here is a sample code:
+```
+{-# LANGUAGE FlexibleContexts #-}
+module Main where
+
+import Control.Monad.Reader
+import Data.List
+import Data.List.Split
+import Text.Printf
+
+main :: IO ()
+main = do
+    let
+        -- | A list of calculation expressions.
+        calculations = ["1+1=2", "2*2=4", "3^2=9"]
+        -- | A list of functions to be applied to the calculations.
+        functions = [(*2), (+1), (^2)]
+        -- | Combines the two list into a list of tuples.
+        calculationFunctions = zip calculations functions
+        -- | Applies the functions to the calculations and splits result.
+        result = map (\(c, f) -> map (printf "%.2f") $ splitOn "=" $ c ++ "=" ++ (show $ f $ read $ (splitOn "=" c) !! 0)) calculationFunctions
+        -- | Flattens the result list.
+        result' = concat result
+    putStrLn $ unlines result'
+```
+This will give the following result:
+```
+1.00+1[0m
